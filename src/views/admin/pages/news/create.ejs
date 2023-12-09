@@ -1,0 +1,92 @@
+<div class="page-top">
+  <h1 class="page-title">Новости</h1>
+</div>
+<%- include("../../partials/breadcrumb.ejs") %>
+<div>
+  <form action="/admin<%= pathname %>/create" method="post" class="c-form">
+    <div class="c-form-container">
+      <div class="c-form-main">
+        <% if (locales && locales.length > 0) { %>
+        <nav class="nav nav-tabs" id="nav-tab" role="tablist">
+          <% locales.forEach(locale => { %>
+          <button
+            class="nav-link"
+            id="nav-<%= locale.code %>-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-<%= locale.code %>"
+            type="button"
+            role="tab"
+            aria-controls="nav-<%= locale.code %>"
+            aria-selected="true"
+          >
+            <%= locale.name %>
+          </button>
+          <% }) %>
+        </nav>
+        <div class="tab-content">
+          <% locales.forEach(locale => { %>
+          <div
+            class="tab-pane fade"
+            id="nav-<%= locale.code %>"
+            role="tabpanel"
+            aria-labelledby="nav-<%= locale.code %>-tab"
+            tabindex="0"
+          >
+            <div class="c-input-div">
+              <p>
+                Заголовок <% if (locale.default) { %>
+                <span class="c-required">*</span>
+                <% } %>
+              </p>
+              <% if (locale.default) { %>
+              <input
+                type="text"
+                placeholder="Заголовок"
+                name="title-<%= locale.code %>"
+                required
+              />
+              <% } else { %>
+              <input
+                type="text"
+                placeholder="Заголовок"
+                name="title-<%= locale.code %>"
+              />
+              <% } %>
+            </div>
+            <div class="c-input-div mt">
+              <p>Тело</p>
+              <textarea
+                name="body-<%= locale.code %>"
+                rows="20"
+                cols="30"
+                class="editor"
+              ></textarea>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+        <% } %>
+        <div class="c-input-div mt">
+          <p>Изображение</p>
+          <div
+            id="dropzone"
+            class="dropzone c-dropzone"
+            data-key="tour-images"
+            data-url="/file/upload"
+            data-max="2"
+            data-delete="/file/delete"
+            aria-required="true"
+          >
+            <div class="dz-message dz-default" data-dz-message>
+              <span>Перетащите файлы для загрузки</span>
+            </div>
+          </div>
+        </div>
+        <div class="c-form-buttons">
+          <a href="/admin<%= pathname %>" class="c-btn-secondary">Отмена</a>
+          <button type="submit" class="c-btn">Сохранить</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

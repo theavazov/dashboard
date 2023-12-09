@@ -1,0 +1,64 @@
+.btn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  max-width: 250px;
+  width: 100%;
+  min-height: 62px;
+  font-family: var(--prosto);
+  font-size: 16px;
+  line-height: 20px;
+  z-index: 0;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  z-index: -1;
+}
+
+.btn.orange {
+  border: 1px solid var(--orange);
+  color: var(--white);
+}
+
+.btn.orange::after {
+  background-color: var(--orange);
+}
+
+.btn.blue {
+  border: 1px solid var(--dark-blue);
+  color: var(--white);
+}
+
+.btn.blue::after {
+  background-color: var(--dark-blue);
+}
+
+.btn.white {
+  border: 1px solid var(--white);
+  color: var(--dark-blue);
+}
+
+.btn.white::after {
+  background-color: var(--white);
+}
+
+.c-btn {
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--white);
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  min-width: 120px;
+  transition: 0.3s;
+}
+
+.c-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

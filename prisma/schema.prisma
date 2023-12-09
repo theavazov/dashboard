@@ -1,0 +1,93 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Settings
+// - Siteinfo
+model Siteinfo {
+  id          Int      @id @default(1)
+  title       Json
+  subtitle    Json?
+  description Json?
+  number      String?
+  address     Json?
+  map         String?
+  email       String?
+  telegram    String?
+  instagram   String?
+  youtube     String?
+  facebook    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// - Language
+model Language {
+  id        Int      @id @default(autoincrement())
+  name      String
+  code      String
+  icon      String?
+  default   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  status    Boolean  @default(true)
+}
+
+// Application
+model Application {
+  id        Int      @id @default(autoincrement())
+  name      String
+  number    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  status    Boolean  @default(true)
+}
+
+// Tour
+model Tour {
+  id          Int         @id @default(autoincrement())
+  name        Json
+  price       Int
+  extra_price Int?
+  days        Int
+  description Json?
+  images      TourImage[]
+  slug        String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  status      Boolean     @default(true)
+}
+
+model TourImage {
+  id        Int      @id @default(autoincrement())
+  image     String?
+  tour      Tour     @relation(fields: [tourId], references: [id], onDelete: Cascade)
+  tourId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Article
+model Article {
+  id        Int            @id @default(autoincrement())
+  title     Json
+  body      Json?
+  images    ArticleImage[]
+  slug      String
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+}
+
+model ArticleImage {
+  id        Int      @id @default(autoincrement())
+  image     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  article   Article? @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  articleId Int?
+}

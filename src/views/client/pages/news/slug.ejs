@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+  <%- include('../../partials/head.ejs', {title: "Cavsar | Новости | Тур"}) %>
+  <body>
+    <div class="wrapper">
+      <%- include('../../partials/header.ejs') %>
+      <main>
+        <section class="intro">
+          <div class="box intro-inner">
+            <div class="breadcrumb-wrapper">
+              <nav class="breadcrumb">
+                <a href="/" class="breadcrumb-item">Главная</a>
+                <span class="breadcrumb-item">/</span>
+                <a href="/tours" class="breadcrumb-item">Туры</a>
+                <span class="breadcrumb-item">/</span>
+                <p class="breadcrumb-item active">
+                  <%= tour.name[locale.code] %>
+                </p>
+              </nav>
+              <h1 class="intro-title"><%= tour.name[locale.code] %></h1>
+            </div>
+          </div>
+          <img
+            src="<%= mediaLinkGenerator(tour.images[0].image) %>"
+            alt="intro image"
+            class="image"
+          />
+        </section>
+        <section>
+          <div class="box tour-section-inner"></div>
+        </section>
+      </main>
+      <%- include('../../partials/footer.ejs') %>
+    </div>
+    <%- include("../../partials/scripts.ejs") %>
+  </body>
+</html>

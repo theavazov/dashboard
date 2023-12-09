@@ -1,0 +1,104 @@
+.c-table {
+  width: 100%;
+}
+
+.c-table thead .c-table-row {
+  background-color: var(--light);
+}
+
+.c-table th,
+.c-table td {
+  color: var(--black);
+  font-size: 14px !important;
+  line-height: 18px !important;
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  text-align: center;
+}
+
+.c-table th {
+  text-transform: uppercase;
+}
+
+.c-table tr th:first-child,
+.c-table tr td:first-child {
+  width: 80px;
+}
+
+.c-table tr th:last-child,
+.c-table tr td:last-child {
+  width: 200px;
+}
+
+.c-table td img {
+  display: inline-block;
+  max-width: 120px;
+  width: 100%;
+  height: 120px;
+}
+
+.events-td {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+}
+
+.event-btn {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  color: var(--white);
+  transition: 0.3s;
+}
+
+.event-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.event-btn.edit {
+  background-color: var(--blue);
+}
+
+.event-btn.edit:hover {
+  background-color: var(--darker-blue);
+}
+
+.event-btn.delete {
+  background-color: var(--red);
+}
+
+.event-btn.delete:hover {
+  background-color: var(--darker-red);
+}
+
+.table-text {
+  font-size: 12px;
+  line-height: 14px;
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  color: var(--green);
+  background-color: var(--green);
+  color: var(--white);
+  width: max-content;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.table-text.non-active {
+  background-color: var(--red);
+}
+
+.c-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.w-full {
+  width: 100%;
+}

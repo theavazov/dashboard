@@ -1,0 +1,21 @@
+<% if (news && news.length > 0) { %>
+<section>
+  <div class="box section-inner news-inner">
+    <% news.map(article => { %>
+    <a href="/news/<%= article.slug %>" class="article-card">
+      <div class="article-card-image">
+        <img class="image" src="<%= article.image ? article.image :
+        "/client/media/noimage.jpg" %>" alt="<%= article.title %>" >
+      </div>
+      <div class="article-card-content">
+        <p class="article-card-title"><%= article.title %></p>
+        <div class="article-card-bottom">
+          <span class="article-card-date">13 февраля 2023</span>
+          <span class="article-card-readmore">Подробнее</span>
+        </div>
+      </div>
+    </a>
+    <% }) %>
+  </div>
+</section>
+<% } %>

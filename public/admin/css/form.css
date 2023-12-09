@@ -1,0 +1,247 @@
+.c-input-div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.c-input-div input,
+.c-input-div textarea {
+  padding: 10px !important;
+  border: 1px solid #d1d1d1;
+  font-size: 16px;
+  line-height: 20px;
+  /* border-radius: var(--border-radius); */
+}
+
+.c-input-div input:focus,
+.c-input-div textarea:focus {
+  outline: none;
+}
+
+.c-input-div p {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--black);
+}
+
+.c-input-div.mt {
+  margin-top: 20px !important;
+}
+
+.c-form-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 20px !important;
+}
+
+.c-form-buttons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.c-input-div .form-switch {
+  padding-left: 0px !important;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+}
+
+.c-input-div .form-switch input {
+  width: 50px !important;
+}
+
+.c-input-div .form-switch input:checked {
+  background-color: var(--black) !important;
+}
+
+.c-input-div .form-check-input:focus {
+  box-shadow: none !important;
+  border: 1px solid #d1d1d1 !important;
+}
+
+.c-input-div .form-check-input:active {
+  filter: unset !important;
+}
+
+.c-form-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 16px !important;
+}
+
+.c-form-main {
+  max-width: 70%;
+  width: 100%;
+  background-color: var(--white);
+  padding: 20px !important;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.c-form-aside {
+  max-width: 320px;
+  width: 100%;
+  background-color: var(--white);
+  padding: 20px !important;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tab-content {
+  margin-top: 20px !important;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid var(--border-color) !important;
+  gap: 2px !important;
+}
+
+.nav-link {
+  position: relative;
+  color: rgba(0, 0, 0, 0.6) !important;
+  padding: 12px !important;
+  border: 1px solid var(--white) !important;
+  border-bottom: none !important;
+  z-index: 1;
+}
+
+.nav-link.active {
+  color: var(--black) !important;
+  border: 1px solid var(--border-color) !important;
+  border-bottom: none !important;
+  padding: 12px !important;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--white);
+  z-index: 1;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  border: 1px solid var(--border-color) !important;
+  border-bottom: none !important;
+  color: var(--black) !important;
+  padding: 12px !important;
+}
+
+.c-dropzone {
+  border: 1px solid var(--border-color) !important;
+  min-height: 120px !important;
+  display: flex;
+  align-items: center;
+  gap: 12px !important;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.c-dropzone:hover {
+  opacity: 1;
+}
+
+.c-dropzone .dz-default.dz-message {
+  width: 100%;
+  text-align: center;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: var(--black) !important;
+}
+
+.c-dropzone .dz-preview {
+  display: grid !important;
+}
+
+.c-dropzone.edit-dropzone .dz-default.dz-message {
+  display: none;
+}
+
+.c-dropzone .dz-preview .dz-image {
+  border: 1px solid var(--border-color);
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 0px !important;
+}
+
+.c-dropzone .dz-preview .dz-progress,
+.c-dropzone .dz-preview .dz-success-mark,
+.c-dropzone .dz-preview .dz-error-mark {
+  transform: translate(-50%, -50%) !important;
+}
+
+.c-dropzone .dz-preview .dz-image img,
+.c-form-image img,
+.c-obj-image img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.c-dropzone .dz-preview .dz-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 0px;
+}
+
+.c-form-image-dz {
+  position: relative;
+  max-width: 120px;
+  width: 100%;
+  height: 120px;
+}
+
+.c-obj-image {
+  position: relative;
+  max-width: 120px;
+  width: 100%;
+  height: 120px;
+}
+
+/* === */
+.c-form-images-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+
+.c-form-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  border: 1px solid red;
+  display: grid;
+  place-items: center;
+}
+
+.c-form-image input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+}
+
+.c-required {
+  color: var(--red);
+}

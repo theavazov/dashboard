@@ -1,0 +1,19 @@
+<div class="page-top">
+  <h1 class="page-title">Новости</h1>
+  <a href="/admin/news/create" class="c-btn">Добавить</a>
+</div>
+<%- include("../../partials/breadcrumb.ejs") %>
+<div class="page-content">
+  <% if (data.length > 0) { %>
+  <table class="c-table">
+    <thead>
+      <tr class="c-table-row">
+        <th>№</th>
+        <th>ИМЯ</th>
+        <th>ИЗОБРАЖЕНИЕ</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <% } else { %> <%- include("../../partials/empty.ejs") %> <% } %>
+</div>

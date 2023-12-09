@@ -1,0 +1,129 @@
+<div class="page-top">
+  <h1 class="page-title"><%= title %></h1>
+</div>
+<%- include("../../partials/breadcrumb.ejs") %>
+<div>
+  <form
+    action="/admin<%= pathname %>/edit/<%= object.id %>"
+    method="post"
+    class="c-form"
+  >
+    <div class="c-form-container">
+      <div class="c-form-main">
+        <% if (locales && locales.length > 0) { %>
+        <nav class="nav nav-tabs" id="nav-tab" role="tablist">
+          <% locales.forEach(locale => { %>
+          <button
+            class="nav-link"
+            id="nav-<%= locale.code %>-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-<%= locale.code %>"
+            type="button"
+            role="tab"
+            aria-controls="nav-<%= locale.code %>"
+            aria-selected="true"
+          >
+            <%= locale.name %>
+          </button>
+          <% }) %>
+        </nav>
+        <div class="tab-content">
+          <% locales.forEach(locale => { %>
+          <div
+            class="tab-pane fade"
+            id="nav-<%= locale.code %>"
+            role="tabpanel"
+            aria-labelledby="nav-<%= locale.code %>-tab"
+            tabindex="0"
+          >
+            <div class="c-input-div">
+              <p>Name</p>
+              <input
+                type="text"
+                placeholder="name"
+                name="name-<%= locale.code %>"
+                required
+                value="<%= object.name[locale.code] %>"
+              />
+            </div>
+            <div class="c-input-div mt">
+              <p>Desc</p>
+              <textarea
+                name="desc-<%= locale.code %>"
+                rows="20"
+                cols="30"
+                class="editor"
+              >
+                <%= object.description[locale.code] %>
+              </textarea>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+        <% } %>
+        <div
+          id="dropzone"
+          class="dropzone c-dropzone edit-dropzone"
+          data-url="/file/upload"
+          data-max="5"
+          data-delete="/file/delete"
+        >
+          <% object.images.forEach(imgElement => { %>
+          <div
+            class="dz-preview dz-processing dz-success dz-complete dz-image-preview"
+          >
+            <div class="dz-image">
+              <img
+                alt="contact-intro-bg.jpg"
+                src="<%= mediaLinkGenerator(imgElement.image) %>"
+                class="image"
+              />
+            </div>
+            <a
+              class="dz-remove"
+              data-dz-remove
+              data-path="<%= imgElement.image %>"
+              >Удалить</a
+            >
+          </div>
+          <% }) %>
+        </div>
+      </div>
+      <div class="c-form-aside">
+        <div class="c-input-div">
+          <p>Days</p>
+          <input
+            type="text"
+            placeholder="days"
+            name="days"
+            required
+            value="<%= object.days %>"
+          />
+        </div>
+        <div class="c-input-div">
+          <p>Price</p>
+          <input
+            type="text"
+            placeholder="price"
+            name="price"
+            required
+            value="<%= object.price %>"
+          />
+        </div>
+        <div class="c-input-div">
+          <p>Extra Price</p>
+          <input
+            type="text"
+            placeholder="extra_price"
+            name="extra_price"
+            value="<%= object.extra_price %>"
+          />
+        </div>
+        <div class="c-form-buttons-grid">
+          <a href="/admin<%= pathname %>" class="c-btn-secondary">Отмена</a>
+          <button type="submit" class="c-btn">Сохранить</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

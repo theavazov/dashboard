@@ -1,0 +1,63 @@
+<div class="page-top">
+  <h1 class="page-title">Новый язык</h1>
+</div>
+<%- include("../../../partials/breadcrumb.ejs") %>
+<div class="page-content">
+  <form action="/admin<%= pathname %>/create" method="post" class="c-form">
+    <div class="c-form-grid">
+      <div class="w-full">
+        <div class="c-input-div">
+          <p>Имя <span class="c-required">*</span></p>
+          <input type="text" placeholder="Имя" name="name" required />
+        </div>
+        <div class="c-input-div mt">
+          <p>Код <span class="c-required">*</span></p>
+          <input type="text" placeholder="Код" name="code" required />
+        </div>
+      </div>
+      <div class="w-full">
+        <div class="c-input-div">
+          <p>По умолчанию</p>
+          <div class="form-check form-switch">
+            <% if (data && data.length > 0) { %>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault"
+              name="defaultLang"
+            />
+            <% } else { %>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              checked
+              id="flexSwitchCheckDefault"
+              disabled
+              name="defaultLang"
+            />
+            <% } %>
+          </div>
+        </div>
+        <div class="c-input-div mt">
+          <p>Активный</p>
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              checked
+              id="flexSwitchCheckDefault"
+              name="active"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="c-form-buttons">
+      <a href="/admin<%= pathname %>" class="c-btn-secondary">Отмена</a>
+      <button type="submit" class="c-btn">Сохранить</button>
+    </div>
+  </form>
+</div>

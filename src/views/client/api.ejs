@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="/admin/icons/nodejs.svg"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/client/css/api.css" />
+    <title><%= title %> - Express with Typescript</title>
+  </head>
+  <body>
+    <div class="api-wrapper">
+      <header class="api-header">
+        <div class="api-header-line"></div>
+        <div class="api-box api-header-inner">
+          <h1 class="api-header-title">Express with Typescript</h1>
+        </div>
+      </header>
+      <main class="api-main">
+        <img
+          src="/client/media/grid.jpg"
+          alt="Grid background"
+          class="api-grid-background"
+        />
+        <div class="api-box api-main-inner">
+          <div class="api-container">
+            <p class="api-text"><span>GET</span> <%= path %></p>
+          </div>
+          <div class="api-container">
+            <pre class="api-json"><%= json %></pre>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

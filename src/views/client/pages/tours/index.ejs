@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="<%= locale  %>">
+  <%- include('../../partials/head.ejs', {title: 'Cavsar | Туры'}) %>
+  <body>
+    <div class="wrapper">
+      <%- include('../../partials/header.ejs') %>
+      <main>
+        <%- include('../../partials/intro.ejs', {current: "Туры", image:
+        "/client/media/tours-intro-bg.jpg", parent: null}) %>
+        <section>
+          <div class="box tour-section-inner">
+            <div class="tours-container">
+              <% if (tours.length > 0) { %> <% tours.forEach(tour => { %>
+              <a href="/tours/<%= tour.slug %>" class="tour-card">
+                <span class="tour-card-price"><%= mask(tour.price) %> сум</span>
+                <div class="tour-card-content">
+                  <p class="tour-card-days"><%= tour.days %> дней</p>
+                  <p class="tour-card-title"><%= tour.name[locale.code] %></p>
+                </div>
+                <% console.log(mediaLinkGenerator(tour.images[0].image)); %>
+                <img
+                  src="<%= mediaLinkGenerator(tour.images[0].image) %>"
+                  alt="<%= tour.name[locale.code] %>"
+                  class="image"
+                />
+              </a>
+              <% }) %> <% } %>
+            </div>
+            <button class="btn orange">Посмотреть все</button>
+          </div>
+        </section>
+        <%- include('../../partials/banner.ejs') %>
+        <!-- NEWS SECTION -->
+        <%- include('../../partials/news.ejs') %>
+      </main>
+      <%- include('../../partials/footer.ejs') %>
+    </div>
+    <%- include("../../partials/scripts.ejs") %>
+  </body>
+</html>

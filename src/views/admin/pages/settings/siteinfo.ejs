@@ -1,0 +1,26 @@
+<div class="page-top">
+  <h1 class="page-title"><%= title %></h1>
+</div>
+<%- include("../../partials/breadcrumb.ejs") %>
+<div class="page-content">
+  <form action="/admin/siteinfo" method="post" class="c-form">
+    <div class="c-input-div">
+      <p>Title</p>
+      <input type="text" placeholder="Title" name="title" required />
+    </div>
+    <div class="c-input-div mt">
+      <p>Description</p>
+      <textarea
+        name="description"
+        rows="20"
+        cols="30"
+        class="editor"
+        required
+      ></textarea>
+    </div>
+    <div class="c-form-buttons">
+      <a href="/admin/siteinfo" class="c-btn-secondary">Отмена</a>
+      <button type="submit" class="c-btn">Сохранить</button>
+    </div>
+  </form>
+</div>
